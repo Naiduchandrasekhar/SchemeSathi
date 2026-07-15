@@ -1,0 +1,1 @@
+import { Router } from 'express'; import { listSchemes,getScheme,getRecommendations,extract } from '../controllers/schemeController.js'; const r=Router(); r.get('/schemes',listSchemes);r.get('/schemes/:id',getScheme);r.post('/recommend',getRecommendations);r.post('/extract-profile',extract);export default r
