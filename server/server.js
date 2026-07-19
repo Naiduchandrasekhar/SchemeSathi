@@ -4,8 +4,12 @@ import cors from "cors";
 import helmet from "helmet";
 import rateLimit from "express-rate-limit";
 import routes from "./routes/schemes.js";
+import { initDb } from "./database/init.js";
 
 const app = express();
+
+// Trust reverse proxy (e.g. Render, Heroku) for express-rate-limit to read X-Forwarded-For header
+app.set("trust proxy", 1);
 
 app.use(helmet());
 
@@ -53,6 +57,7 @@ app.use((err, req, res, next) => {
 
 const PORT = process.env.PORT || 5001;
 
-app.listen(PORT, () => {
+app.listen(PORT, async () => {
   console.log(`🚀 Server running on port ${PORT}`);
+  await initDb();
 });
