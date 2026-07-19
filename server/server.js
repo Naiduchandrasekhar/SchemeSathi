@@ -11,23 +11,22 @@ app.use(helmet());
 
 const allowedOrigins = [
   "http://localhost:5173",
-  "https://6a5cc13dcfcba58005040241--tubular-wisp-c99977.netlify.app",
+  "https://tubular-wisp-c99977.netlify.app",
 ];
 
 app.use(
   cors({
     origin(origin, callback) {
+      // Allow Postman, curl, server-to-server requests
       if (!origin) return callback(null, true);
 
       if (allowedOrigins.includes(origin)) {
         return callback(null, true);
       }
 
-      callback(new Error(`Origin ${origin} not allowed by CORS`));
+      return callback(new Error(`Origin ${origin} not allowed by CORS`));
     },
     credentials: true,
-    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
-    allowedHeaders: ["Content-Type", "Authorization"],
   })
 );
 
