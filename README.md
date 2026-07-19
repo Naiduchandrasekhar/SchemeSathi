@@ -1,470 +1,290 @@
 # 🚀 SchemeSathi — AI Government Scheme Assistant
 
-An AI-powered platform that helps citizens discover government schemes they are eligible for.
-
-## 📌 About The Project
-
-**SchemeSathi** is an AI-powered Government Scheme Recommendation Platform designed to bridge the gap between citizens and government welfare programs.
-
-Millions of people in India are unaware of the government schemes available for them because information is scattered across multiple portals and often written in complex language.
-
-SchemeSathi simplifies this process.
-
-Users can describe their situation in simple language:
-
-> "I am a 24-year-old engineering graduate from Andhra Pradesh looking to start a dairy business."
-
-The platform understands the user's profile and recommends suitable government schemes based on:
-
-- Age
-- State
-- Education
-- Income
-- Gender
-- Occupation
-- Business goals
-- Category requirements
-
-The system provides:
-
-✅ Eligible government schemes  
-✅ Eligibility score  
-✅ Reason for eligibility  
-✅ Benefits  
-✅ Required documents  
-✅ Application process  
-✅ Official application links  
+An AI-powered platform that helps citizens discover government schemes they are eligible for, simplifying welfare access with natural language processing and a custom matching engine.
 
 ---
 
-# 🎯 Problem Statement
+## 📌 Project Overview & Hackathon Vision
 
-India has thousands of Central and State government schemes for:
+**SchemeSathi** is a premium, AI-powered Government Scheme Recommendation Platform designed to bridge the gap between citizens and government welfare programs. 
 
-- Students
-- Farmers
-- Entrepreneurs
-- Women
-- Senior citizens
-- Startups
-- Small businesses
-- Healthcare support
-- Education assistance
+In India, thousands of Central and State government welfare schemes exist to support students, farmers, women, and small businesses. However, millions of people remain unaware of their eligibility because information is scattered across multiple portals, written in complex legal/administrative language, and hard to query. 
 
-However, many eligible citizens do not know these schemes exist.
+**SchemeSathi** solves this by acting as a personal AI assistant. A user describes their situation in simple, natural language:
+> *"I am a 25-year-old graduate from Andhra Pradesh. My family income is 2.5 lakh per year, and I want to start a dairy business."*
 
-People spend hours searching different government websites to find relevant information.
+The assistant automatically extracts the user's profile parameters using AI and matches them against our government schemes database, calculating eligibility scores and generating personalized document checklists.
 
 ---
 
-# 💡 Solution
+## 🎯 Key Features
 
-SchemeSathi acts as a personal AI government scheme assistant.
-
-The user simply explains their situation.
-
-The AI:
-
-1. Extracts user information
-2. Understands their requirements
-3. Matches them with available schemes
-4. Calculates eligibility
-5. Explains everything in simple language
+* **🤖 AI Profile Extraction (NLP):** Users can enter their profile details naturally in plain text. An AI agent extracts structured details (Age, Income, Education, State, Occupation, Gender, and Goals) automatically.
+* **🎯 Custom Eligibility Matcher:** A deterministic, rules-based engine matches user profiles against database rules, eliminating AI hallucination for eligibility criteria.
+* **📊 Eligibility Match Score:** Each scheme is ranked by a percentage match score based on criteria satisfaction.
+* **📄 Integrated Document Checklist:** Shows the user exactly what documents they need to prepare (Aadhaar, PAN, Project Reports, Land Records) before applying.
+* **🌍 Multilingual Accessibility:** Built to support English, Hindi, Telugu, Tamil, Kannada, and Malayalam.
+* **📱 Ultra-Responsive UI:** Fully responsive design built to work flawlessly on low-end smartphones, tablets, and desktops alike.
 
 ---
 
-# ✨ Features
+## 🏗️ System Architecture
 
-## 🤖 AI Profile Extraction
+The following diagram illustrates the request flow:
 
-Users can enter information naturally.
-
-Example:
-
-```
-I am a 25 year old graduate from Telangana.
-My family income is 3 lakh per year.
-I want to start a small food business.
-```
-
-AI extracts:
-
-```json
-{
-  "age":25,
-  "state":"Telangana",
-  "education":"Graduate",
-  "income":300000,
-  "goal":"Food Business"
-}
+```mermaid
+graph TD
+    User([User Input: Plain Text or Form]) -->|Sends query| Frontend[React Web Client]
+    Frontend -->|POST /api/recommend| Backend[Node.js / Express API]
+    Backend -->|Send raw text| AI[OpenAI Structured Output API]
+    AI -->|Return JSON Profile| Backend
+    Backend -->|Query DB| DB[(PostgreSQL Database)]
+    DB -->|Return government schemes| Engine[Custom Eligibility Engine]
+    Engine -->|Calculate weights & filter| Results[Ranked Recommendations]
+    Results -->|JSON Response| Frontend
+    Frontend -->|Display UI Cards & Checklist| User
 ```
 
 ---
 
-## 🎯 Smart Scheme Recommendation
+## 🧠 The Recommendation Engine & Score Math
 
-The recommendation engine checks:
+While OpenAI is used to extract the user's details, the matching logic is handled by a deterministic JavaScript engine to prevent hallucination. 
 
-- Age eligibility
-- State availability
-- Income criteria
-- Education requirements
-- Gender eligibility
-- Business category
+To be recommended for a scheme, the user **MUST meet the critical qualification filters** (Age, State, and Income limits). If they do not, they are immediately filtered out.
 
-and returns suitable schemes.
+For qualified profiles, the engine calculates a **Match Score (up to 100%)** based on the following weights:
 
----
-
-## 📊 Eligibility Score
-
-Each scheme receives a matching score.
-
-Example:
-
-```
-PMEGP
-
-Eligibility Score: 96%
-
-✔ Age matches
-✔ Business category matches
-✔ Income criteria satisfied
-✔ Education requirement satisfied
-```
+| Category | Description | Weight |
+| :--- | :--- | :---: |
+| **Age Eligibility** | User falls within the scheme's `min_age` and `max_age` range. | **20%** |
+| **State Eligibility** | User resides in the scheme's target state or it is an "All India" scheme. | **20%** |
+| **Income Eligibility** | User's income is less than or equal to the scheme's `income_limit`. | **15%** |
+| **Education Match** | User's education level matches the scheme's requirements. | **15%** |
+| **Goal Match** | User's goals align with the scheme's target sector (e.g. "Dairy", "Tech"). | **20%** |
+| **Gender Match** | User's gender matches the target group (or scheme is "Any"). | **10%** |
+| **Total** | | **100%** |
 
 ---
 
-## 📄 Document Checklist
+## 🛠️ Tech Stack
 
-Users can see required documents before applying.
+### Frontend
+* **React.js (Vite):** Core library for UI construction.
+* **Tailwind CSS:** Modern utility CSS framework for responsive layout design.
+* **React Router:** For seamless single-page navigation.
+* **Framer Motion:** High-fidelity, smooth UI animations.
+* **Lucide React:** Icon pack.
 
-Example:
+### Backend & Database
+* **Node.js & Express.js:** Fast, minimal backend web framework.
+* **PostgreSQL:** Reliable relational SQL database storage.
+* **pg-pool:** Efficient connection pooling for database queries.
+* **Auto-Migrations & Seeding:** On server start, if `DATABASE_URL` is set, the server runs `server/database/migration.sql` automatically and seeds the database with default schemes from `server/seed/government_schemes.json` if empty.
 
-```
-Required Documents:
-
-✓ Aadhaar Card
-✓ PAN Card
-✓ Income Certificate
-✓ Bank Account Details
-✓ Project Report
-```
-
----
-
-## 🌍 Multilingual Support
-
-The platform is designed to support regional languages.
-
-Supported languages:
-
-- English
-- Hindi
-- Telugu
-- Tamil
-- Kannada
-- Malayalam
+### AI Integration
+* **OpenAI API:** Utilizing **GPT-4o-mini** with **Structured JSON Schema Outputs** to extract clean profiles from conversational inputs.
 
 ---
 
-## 📱 Responsive Design
-
-Works across:
-
-- Mobile phones
-- Tablets
-- Laptops
-- Desktop screens
-
----
-
-# 🏗️ System Architecture
-
-```
-User
- |
- |
-React Frontend
- |
- |
-Node.js API
- |
- |
-AI Profile Extraction
-(OpenAI API)
- |
- |
-Eligibility Recommendation Engine
- |
- |
-Government Scheme Database
- |
- |
-Personalized Results
-```
-
----
-
-# 🛠️ Tech Stack
-
-## Frontend
-
-- React.js
-- Tailwind CSS
-- React Router
-- React Hook Form
-- Framer Motion
-- Lucide React
-
-## Backend
-
-- Node.js
-- Express.js
-
-## Database
-
-- PostgreSQL
-
-## Artificial Intelligence
-
-- OpenAI API
-
-AI is used only for:
-
-- Extracting structured user information
-- Understanding natural language input
-
-The final recommendation decision is handled by the custom eligibility engine.
-
----
-
-# 📂 Project Structure
+## 📂 Project Structure
 
 ```
 SchemeSathi/
-
-│
-├── client/
+├── client/                     # React Frontend App
 │   ├── src/
-│   ├── components/
-│   ├── pages/
+│   │   ├── components/         # Reusable UI parts (Header, Autocomplete, Toast)
+│   │   ├── pages/              # Main Screens (HomePage, RecommendationsPage)
+│   │   ├── services/           # Axios HTTP API Service clients
+│   │   ├── App.jsx             # Main router and app shell
+│   │   └── index.css           # Global Tailwind & Custom CSS
 │   └── package.json
 │
-├── server/
-│   ├── controllers/
-│   ├── routes/
-│   ├── services/
-│   ├── database/
+├── server/                     # Express Backend API
+│   ├── controllers/            # API Route controller handlers
+│   ├── database/               # Database pool, migration.sql, and init.js
+│   ├── routes/                 # Express API routes definition
+│   ├── seed/                   # Pre-defined government scheme JSON seeds
+│   ├── services/               # Eligibility calculator & AI extractors
+│   ├── server.js               # Entry-point script
 │   └── package.json
 │
-├── docker-compose.yml
-│
-└── README.md
+├── docker-compose.yml          # Container configuration for local testing
+└── README.md                   # Project documentation
 ```
 
 ---
 
-# 🚀 Getting Started
+## 🚀 Installation & Run Guide (Beginner Friendly)
 
-Follow these steps to run SchemeSathi locally.
+### 1. Prerequisites
+Make sure you have installed:
+* [Node.js](https://nodejs.org/) (Version 18 or above)
+* [Git](https://git-scm.com/)
+* [PostgreSQL](https://www.postgresql.org/) (Local database or a hosted solution like Supabase/Neon/Render Postgres)
 
-## Prerequisites
-
-Install:
-
-- Node.js (v18+)
-- npm
-- PostgreSQL
-- Git
-
-Check versions:
-
-```bash
-node -v
-npm -v
-```
-
----
-
-# 1. Clone Repository
-
+### 2. Clone the Repository
+Open a terminal and run:
 ```bash
 git clone https://github.com/Naiduchandrasekhar/SchemeSathi.git
-```
-
-Go inside project:
-
-```bash
 cd SchemeSathi
 ```
 
 ---
 
-# 2. Setup Backend
+### 3. Setup Backend Service
 
-Navigate to server:
-
-```bash
-cd server
-```
-
-Install dependencies:
-
-```bash
-npm install
-```
-
-Create environment file:
-
-Copy:
-
-```
-.env.example
-```
-
-Rename to:
-
-```
-.env
-```
-
-Add your configuration:
-
-```
-PORT=5000
-
-DATABASE_URL=your_postgresql_connection
-
-OPENAI_API_KEY=your_openai_key
-```
-
-Start backend:
-
-```bash
-npm run dev
-```
-
-Server runs on:
-
-```
-http://localhost:5000
-```
+1. Navigate to the `server` folder:
+   ```bash
+   cd server
+   ```
+2. Install the necessary dependencies:
+   ```bash
+   npm install
+   ```
+3. Create your environment variable file by copying the template:
+   ```bash
+   cp .env.example .env
+   ```
+4. Open the `.env` file in an editor and configure your variables:
+   ```env
+   PORT=5001
+   
+   # PostgreSQL Connection URI (e.g. from local PG or hosted PG)
+   DATABASE_URL=postgresql://postgres:postgres@localhost:5432/schemesathi
+   
+   # OpenAI Key for Structured profile extraction
+   OPENAI_API_KEY=your_openai_api_key_here
+   ```
+5. Run the server in development mode:
+   ```bash
+   npm run dev
+   ```
+   *Note: On boot, the server will connect to PostgreSQL, automatically execute `migration.sql` to create the table, and seed it with 10+ standard welfare schemes if it is empty!*
 
 ---
 
-# 3. Setup Frontend
+### 4. Setup Frontend Client
 
-Open another terminal.
-
-Navigate:
-
-```bash
-cd client
-```
-
-Install dependencies:
-
-```bash
-npm install
-```
-
-Start React application:
-
-```bash
-npm run dev
-```
-
-Frontend runs on:
-
-```
-http://localhost:5173
-```
+1. Open a new terminal window and navigate to the `client` folder:
+   ```bash
+   cd client
+   ```
+2. Install frontend dependencies:
+   ```bash
+   npm install
+   ```
+3. Start the Vite React development server:
+   ```bash
+   npm run dev
+   ```
+4. Open your browser and navigate to the address shown (usually `http://localhost:5173`).
 
 ---
 
-# 🔌 API Endpoints
+## 💡 End-to-End Walkthrough (Try This Example!)
 
-## Get All Schemes
+To see the intelligence of **SchemeSathi** in action, input the following test case:
 
-```
-GET /api/schemes
-```
+### 1. Input Profile Details
+Either type this text in the AI Box or fill it in the manual forms:
+* **Age:** `25`
+* **Family Income:** `250000` (2.5 Lakh per annum)
+* **State:** `Andhra Pradesh`
+* **Gender:** `Female`
+* **Education:** `Graduate`
+* **Goal/Occupation:** `Start Dairy Business`
 
----
+### 2. The Behind-the-Scenes Match Math
+Here is how the backend matches the schemes in the database:
 
-## Recommend Schemes
+#### A. **Andhra Pradesh YSR Rythu Bharosa**
+* **Age (25):** Falls inside target range (18–100) ➔ **Eligible (20%)**
+* **State (Andhra Pradesh):** Matches scheme state ➔ **Eligible (20%)**
+* **Income (250,000):** Less than the limit of 500,000 ➔ **Eligible (15%)**
+* **Gender (Female):** Scheme is "Any" ➔ **Eligible (10%)**
+* **Education (Graduate):** Scheme is "Any" ➔ **Eligible (15%)**
+* **Goal (Start Dairy Business):** matches business categories `["Agriculture", "Dairy Business"]` ➔ **Eligible (15%)**
+* **Occupation (Farmer):** Matches criteria ➔ **Eligible (5%)**
+* **Total score:** **100% Match!** 🎉
 
-```
-POST /api/recommend
-```
-
-Example request:
-
-```json
-{
- "age":29,
- "state":"Andhra Pradesh",
- "education":"Engineering",
- "income":250000,
- "gender":"Male",
- "goal":"Start Dairy Business"
-}
-```
-
----
-
-# 🧠 Recommendation Logic
-
-The eligibility engine calculates scores using:
-
-| Criteria | Weight |
-|---|---:|
-| Age Match | 20% |
-| State Match | 20% |
-| Income Match | 15% |
-| Education Match | 15% |
-| Goal Match | 20% |
-| Gender Match | 10% |
-
-Total:
-
-```
-100%
-```
+#### B. **Pradhan Mantri MUDRA Yojana**
+* **Age (25):** Falls inside target range (18–65) ➔ **Eligible (20%)**
+* **State (Andhra Pradesh):** Scheme is "All India" ➔ **Eligible (20%)**
+* **Income (250,000):** Scheme has no income limit ➔ **Eligible (15%)**
+* **Gender (Female):** Scheme is "Any" ➔ **Eligible (10%)**
+* **Education (Graduate):** Scheme is "Any" ➔ **Eligible (15%)**
+* **Goal (Start Dairy Business):** matches business categories `["Dairy Business", "Micro Enterprise", "Retail"]` ➔ **Eligible (15%)**
+* **Occupation (Farmer):** Matches criteria ➔ **Eligible (5%)**
+* **Total score:** **100% Match!** 🎉
 
 ---
 
-# 🎯 Future Improvements
+## 🔌 API Endpoints Reference
 
-- Aadhaar document OCR
-- Voice-based assistant
-- More regional languages
-- Real-time government scheme updates
-- Mobile application
-- Personalized scheme reminders
-- Government portal integrations
+### 1. Get All Schemes
+Fetch list of all schemes in the database.
+* **Endpoint:** `GET /api/schemes`
+* **Response:** Array of government scheme objects.
+
+### 2. Get Single Scheme
+Retrieve details of a scheme by ID.
+* **Endpoint:** `GET /api/schemes/:id`
+
+### 3. Match and Recommend Schemes
+Find eligible schemes and calculate eligibility match percentages.
+* **Endpoint:** `POST /api/recommend`
+* **Payload:**
+  ```json
+  {
+    "age": 25,
+    "state": "Andhra Pradesh",
+    "education": "Graduate",
+    "income": 250000,
+    "gender": "Female",
+    "goal": "Start Dairy Business"
+  }
+  ```
+* **Response:**
+  ```json
+  [
+    {
+      "scheme": "Andhra Pradesh YSR Rythu Bharosa",
+      "eligibility_score": 100,
+      "reason": [
+        "Age eligible",
+        "State eligible",
+        "Income eligible",
+        "Gender criteria satisfied",
+        "Education criteria satisfied",
+        "Occupation criteria satisfied",
+        "Business type matches"
+      ],
+      "benefits": ["Annual farmer investment support"],
+      "documents": ["Aadhaar", "Land records", "Bank details"],
+      "application_process": "Apply through local agriculture authorities.",
+      "official_link": "https://apagrisnet.gov.in/"
+    }
+  ]
+  ```
 
 ---
 
-# 🏆 Hackathon Vision
+## 🔮 Future Improvements
 
-SchemeSathi aims to make government benefits accessible to everyone by using AI to simplify discovery, eligibility checking, and application guidance.
-
-Technology should reduce the distance between citizens and opportunities.
+1. **Aadhaar Document OCR:** Allow users to upload their Aadhaar/PAN cards and use AI text recognition to autofill their age, gender, state, and name.
+2. **Interactive Voice Assistant:** Voice-to-text queries in regional accents to assist users who cannot read or write.
+3. **Automatic Application Assistance:** Integration with official API endpoints to directly forward user documents to block officers.
+4. **Push Notifications:** Direct updates/alerts when new schemes matching their profile are announced by state governments.
 
 ---
 
-# 👨‍💻 Author
+## 👨‍💻 Author
 
 **Naidu Chandrasekhar**
-
-GitHub:
-
-https://github.com/Naiduchandrasekhar
+* **GitHub:** [Naiduchandrasekhar](https://github.com/Naiduchandrasekhar)
 
 ---
 
-# 📄 License
-
-This project is created for educational and hackathon purposes.
+## 📄 License
+This project is licensed under the MIT License — created for educational and hackathon purposes.
