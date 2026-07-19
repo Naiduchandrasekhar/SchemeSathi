@@ -133,11 +133,10 @@ function CategoryPicker({ selected, toggle, open, setOpen, invalid }) {
         type="button"
         aria-expanded={open}
         onClick={() => setOpen(!open)}
-        className={`flex min-h-[52px] w-full items-center justify-between gap-3 rounded-xl border bg-bg-secondary px-4 py-2.5 text-left shadow-sm transition duration-200 focus:outline-none focus:ring-4 focus:ring-brand-primary/10 ${
-          invalid
-            ? "border-red-400 focus:border-red-500 focus:ring-red-100"
-            : "border-border-main hover:border-brand-primary/60 focus:border-brand-primary"
-        }`}
+        className={`flex min-h-[52px] w-full items-center justify-between gap-3 rounded-xl border bg-bg-secondary px-4 py-2.5 text-left shadow-sm transition duration-200 focus:outline-none focus:ring-4 focus:ring-brand-primary/10 ${invalid
+          ? "border-red-400 focus:border-red-500 focus:ring-red-100"
+          : "border-border-main hover:border-brand-primary/60 focus:border-brand-primary"
+          }`}
       >
         <span
           className={
@@ -148,28 +147,27 @@ function CategoryPicker({ selected, toggle, open, setOpen, invalid }) {
         >
           {selected.length
             ? selected.map((item) => (
-                <span
-                  className="inline-flex items-center gap-1.5 rounded-lg bg-brand-bg px-2.5 py-1 text-xs font-bold text-brand-primary"
-                  key={item}
-                >
-                  {item}
-                  <X
-                    onClick={(event) => {
-                      event.stopPropagation();
-                      toggle(item);
-                    }}
-                    className="cursor-pointer hover:text-brand-hover transition-colors"
-                    size={13}
-                  />
-                </span>
-              ))
+              <span
+                className="inline-flex items-center gap-1.5 rounded-lg bg-brand-bg px-2.5 py-1 text-xs font-bold text-brand-primary"
+                key={item}
+              >
+                {item}
+                <X
+                  onClick={(event) => {
+                    event.stopPropagation();
+                    toggle(item);
+                  }}
+                  className="cursor-pointer hover:text-brand-hover transition-colors"
+                  size={13}
+                />
+              </span>
+            ))
             : "Select applicable categories"}
         </span>
         <ChevronDown
           size={18}
-          className={`shrink-0 text-text-dim transition duration-200 ${
-            open ? "rotate-180 text-brand-primary" : ""
-          }`}
+          className={`shrink-0 text-text-dim transition duration-200 ${open ? "rotate-180 text-brand-primary" : ""
+            }`}
         />
       </button>
       <AnimatePresence>
@@ -188,11 +186,10 @@ function CategoryPicker({ selected, toggle, open, setOpen, invalid }) {
               {categories.map((item) => (
                 <label
                   key={item}
-                  className={`flex cursor-pointer items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-semibold transition ${
-                    selected.includes(item)
-                      ? "bg-brand-bg text-brand-primary"
-                      : "text-text-muted hover:bg-bg-tertiary hover:text-text-main"
-                  }`}
+                  className={`flex cursor-pointer items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-semibold transition ${selected.includes(item)
+                    ? "bg-brand-bg text-brand-primary"
+                    : "text-text-muted hover:bg-bg-tertiary hover:text-text-main"
+                    }`}
                 >
                   <input
                     type="checkbox"
@@ -259,10 +256,9 @@ export default function HomePage() {
   }, [isSubmitting]);
 
   const inputClass = (name) =>
-    `mt-2 w-full rounded-xl border bg-bg-secondary px-4 py-3.5 text-text-main shadow-sm outline-none transition duration-200 placeholder:text-text-dim focus:border-brand-primary focus:ring-4 focus:ring-brand-primary/10 ${
-      errors[name]
-        ? "border-red-400 focus:border-red-500 focus:ring-red-100"
-        : "border-border-main focus:border-brand-primary"
+    `mt-2 w-full rounded-xl border bg-bg-secondary px-4 py-3.5 text-text-main shadow-sm outline-none transition duration-200 placeholder:text-text-dim focus:border-brand-primary focus:ring-4 focus:ring-brand-primary/10 ${errors[name]
+      ? "border-red-400 focus:border-red-500 focus:ring-red-100"
+      : "border-border-main focus:border-brand-primary"
     }`;
 
   const toggleCategory = (item) =>
@@ -390,16 +386,16 @@ export default function HomePage() {
           >
             <CheckCircle2 size={13.5} /> Built for every indian
           </motion.p>
-          
+
           <motion.h1
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
             className="mt-6 font-serif text-4xl font-semibold tracking-tight leading-[1.1] md:text-6xl text-text-main"
           >
-            Find public benefits that <br className="hidden sm:inline" />
+            Find the Right Scheme <br className="hidden sm:inline" />
             <span className="text-brand-primary bg-gradient-to-r from-brand-primary to-teal-500 bg-clip-text text-transparent">
-              fit your life.
+              You Deserve.
             </span>
           </motion.h1>
 
@@ -409,8 +405,7 @@ export default function HomePage() {
             transition={{ delay: 0.2 }}
             className="mx-auto mt-6 max-w-xl text-base leading-relaxed text-text-muted"
           >
-            Describe your situation in plain language. Our rules-based matching engine
-            instantly connects you to eligible government schemes.
+            Describe your situation in plain language, and SchemeSathi will help you discover government schemes, subsidies, scholarships, and welfare programs you may be eligible for
           </motion.p>
         </div>
 
@@ -427,9 +422,8 @@ export default function HomePage() {
               {[1, 2, 3].map((s) => (
                 <div
                   key={s}
-                  className={`h-1.5 w-10 rounded-full transition-all duration-300 ${
-                    s <= step ? "bg-brand-primary" : "bg-bg-tertiary"
-                  }`}
+                  className={`h-1.5 w-10 rounded-full transition-all duration-300 ${s <= step ? "bg-brand-primary" : "bg-bg-tertiary"
+                    }`}
                 />
               ))}
             </div>
@@ -735,16 +729,16 @@ export default function HomePage() {
             className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-bg-primary/95 backdrop-blur-sm px-6"
           >
             <div className="absolute inset-0 grid-pattern opacity-20 pointer-events-none" />
-            
+
             <div className="relative flex flex-col items-center max-w-sm text-center">
               <motion.div
                 animate={{ rotate: 360 }}
                 transition={{ repeat: Infinity, duration: 1.5, ease: "linear" }}
                 className="h-16 w-16 text-brand-primary rounded-full border-[3px] border-bg-tertiary border-t-brand-primary mb-8"
               />
-              
+
               <h2 className="text-xl font-bold tracking-tight mb-2">Analyzing Profile</h2>
-              
+
               {/* Cycling animated text steps */}
               <AnimatePresence mode="wait">
                 <motion.p
