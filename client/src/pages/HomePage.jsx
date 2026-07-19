@@ -377,7 +377,7 @@ export default function HomePage() {
 
       <Header showBack={false} />
 
-      <section className="relative mx-auto max-w-6xl px-6 pb-20 pt-16 z-10">
+      <section className="relative mx-auto max-w-6xl px-6 pb-36 pt-16 z-10 mb-12">
         <div className="mx-auto max-w-3xl text-center">
           <motion.p
             initial={{ opacity: 0, y: -10 }}
