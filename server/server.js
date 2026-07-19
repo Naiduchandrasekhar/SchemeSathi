@@ -16,14 +16,22 @@ app.use(helmet());
 const allowedOrigins = [
   "http://localhost:5173",
   "https://tubular-wisp-c99977.netlify.app",
+  "https://govschemes.netlify.app",
 ];
+
+if (process.env.CLIENT_URL) {
+  // Allow multiple URLs separated by comma or a single URL
+  process.env.CLIENT_URL.split(",").forEach(url => {
+    const trimmed = url.trim();
+    if (trimmed && !allowedOrigins.includes(trimmed)) {
+      allowedOrigins.push(trimmed);
+    }
+  });
+}
 
 app.use(
   cors({
-    origin: [
-      "http://localhost:5173",
-      "https://tubular-wisp-c99977.netlify.app",
-    ],
+    origin: allowedOrigins,
     credentials: true,
   })
 );
