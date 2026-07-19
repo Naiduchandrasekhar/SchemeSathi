@@ -29,7 +29,7 @@ app.use(express.json({ limit: "1mb" }));
 app.use(
   "/api",
   rateLimit({
-    windowMs: 60 * 1000,
+    windowMs: 60 * 1000, 
     max: 100,
   }),
   routes
