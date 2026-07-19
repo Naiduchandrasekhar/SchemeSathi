@@ -16,7 +16,7 @@ app.use(helmet());
 const allowedOrigins = [
   "http://localhost:5173",
   "https://tubular-wisp-c99977.netlify.app",
-  "https://govschemes.netlify.app",
+  "https://schemesati.netlify.app",
 ];
 
 if (process.env.CLIENT_URL) {
@@ -41,7 +41,7 @@ app.use(express.json({ limit: "1mb" }));
 app.use(
   "/api",
   rateLimit({
-    windowMs: 60 * 1000, 
+    windowMs: 60 * 1000,
     max: 100,
   }),
   routes
