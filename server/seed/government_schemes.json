@@ -1,12 +1,771 @@
 [
-{"scheme_name":"Prime Minister's Employment Generation Programme (PMEGP)","category":"Business","state":"All India","min_age":18,"max_age":65,"gender":"Any","income_limit":500000,"education":"Any","occupation":"Any","business_types":["Dairy Business","Manufacturing","Service"],"benefits":["Loan up to ₹25 lakh","Margin money subsidy"],"loan_amount":"₹25 lakh","subsidy":"15%–35%","required_documents":["Aadhaar","PAN","Project Report"],"application_process":"Apply through the PMEGP e-portal and participating bank.","official_link":"https://www.kviconline.gov.in/pmegpeportal/"},
-{"scheme_name":"Pradhan Mantri MUDRA Yojana","category":"Business","state":"All India","min_age":18,"max_age":65,"gender":"Any","income_limit":null,"education":"Any","occupation":"Any","business_types":["Dairy Business","Micro Enterprise","Retail"],"benefits":["Collateral-free business loan","Shishu, Kishor and Tarun categories"],"loan_amount":"Up to ₹10 lakh","subsidy":"As per lender policy","required_documents":["Aadhaar","PAN","Business plan"],"application_process":"Apply at a participating bank or NBFC.","official_link":"https://www.mudra.org.in/"},
-{"scheme_name":"Animal Husbandry Infrastructure Development Fund","category":"Agriculture","state":"All India","min_age":18,"max_age":65,"gender":"Any","income_limit":null,"education":"Any","occupation":"Farmer","business_types":["Dairy Business","Animal Husbandry"],"benefits":["Interest subvention","Infrastructure finance"],"loan_amount":"As approved","subsidy":"3% interest subvention","required_documents":["Aadhaar","Project Report","Bank details"],"application_process":"Apply through eligible financial institutions.","official_link":"https://dahd.nic.in/"},
-{"scheme_name":"Andhra Pradesh YSR Rythu Bharosa","category":"Agriculture","state":"Andhra Pradesh","min_age":18,"max_age":100,"gender":"Any","income_limit":500000,"education":"Any","occupation":"Farmer","business_types":["Agriculture","Dairy Business"],"benefits":["Annual farmer investment support"],"loan_amount":"N/A","subsidy":"Direct benefit support","required_documents":["Aadhaar","Land records","Bank details"],"application_process":"Apply through local agriculture authorities.","official_link":"https://apagrisnet.gov.in/"},
-{"scheme_name":"Telangana Rythu Bandhu","category":"Agriculture","state":"Telangana","min_age":18,"max_age":100,"gender":"Any","income_limit":null,"education":"Any","occupation":"Farmer","business_types":["Agriculture"],"benefits":["Investment support for farmers"],"loan_amount":"N/A","subsidy":"Direct benefit support","required_documents":["Aadhaar","Land records"],"application_process":"Apply through agriculture department.","official_link":"https://rythubandhu.telangana.gov.in/"},
-{"scheme_name":"Karnataka Raitha Vidya Nidhi","category":"Education","state":"Karnataka","min_age":16,"max_age":35,"gender":"Any","income_limit":500000,"education":"Any","occupation":"Farmer","business_types":[],"benefits":["Scholarship support"],"loan_amount":"N/A","subsidy":"Scholarship","required_documents":["Aadhaar","Income certificate","College ID"],"application_process":"Apply via state scholarship portal.","official_link":"https://raitamitra.karnataka.gov.in/"},
-{"scheme_name":"Tamil Nadu Uzhavar Sandhai","category":"Agriculture","state":"Tamil Nadu","min_age":18,"max_age":100,"gender":"Any","income_limit":null,"education":"Any","occupation":"Farmer","business_types":["Agriculture","Dairy Business"],"benefits":["Market access support"],"loan_amount":"N/A","subsidy":"N/A","required_documents":["Aadhaar","Farmer registration"],"application_process":"Contact district agriculture office.","official_link":"https://www.tnagrisnet.tn.gov.in/"},
-{"scheme_name":"Kerala Startup Mission Seed Fund","category":"Startup","state":"Kerala","min_age":18,"max_age":65,"gender":"Any","income_limit":null,"education":"Any","occupation":"Entrepreneur","business_types":["Startup","Technology"],"benefits":["Seed funding support"],"loan_amount":"As approved","subsidy":"Grant support","required_documents":["Aadhaar","Pitch deck","Company registration"],"application_process":"Apply through KSUM portal.","official_link":"https://startupmission.kerala.gov.in/"},
-{"scheme_name":"Maharashtra Chief Minister Employment Generation Programme","category":"Business","state":"Maharashtra","min_age":18,"max_age":45,"gender":"Any","income_limit":null,"education":"Any","occupation":"Any","business_types":["Dairy Business","Manufacturing","Service"],"benefits":["Credit-linked subsidy"],"loan_amount":"As approved","subsidy":"As per category","required_documents":["Aadhaar","PAN","Project Report"],"application_process":"Apply through state portal.","official_link":"https://maha-cmegp.gov.in/"},
-{"scheme_name":"Stand Up India","category":"Business","state":"All India","min_age":18,"max_age":65,"gender":"Any","income_limit":null,"education":"Any","occupation":"Entrepreneur","business_types":["Dairy Business","Manufacturing","Service"],"benefits":["Bank loan for greenfield enterprise"],"loan_amount":"₹10 lakh to ₹1 crore","subsidy":"N/A","required_documents":["Aadhaar","PAN","Project report"],"application_process":"Apply via Stand Up Mitra.","official_link":"https://www.standupmitra.in/"}
+    {
+        "scheme_name": "Prime Minister's Employment Generation Programme (PMEGP)",
+        "category": "Business",
+        "state": "All India",
+        "min_age": 18,
+        "max_age": 65,
+        "gender": "Any",
+        "income_limit": 500000,
+        "education": "Any",
+        "occupation": "Any",
+        "business_types": [
+            "Dairy Business",
+            "Manufacturing",
+            "Service"
+        ],
+        "benefits": [
+            "Loan up to ₹25 lakh",
+            "Margin money subsidy"
+        ],
+        "loan_amount": "₹25 lakh",
+        "subsidy": "15%–35%",
+        "required_documents": [
+            "Aadhaar",
+            "PAN",
+            "Project Report"
+        ],
+        "application_process": "Apply through the PMEGP e-portal and participating bank.",
+        "official_link": "https://www.kviconline.gov.in/pmegpeportal/"
+    },
+    {
+        "scheme_name": "Pradhan Mantri MUDRA Yojana",
+        "category": "Business",
+        "state": "All India",
+        "min_age": 18,
+        "max_age": 65,
+        "gender": "Any",
+        "income_limit": null,
+        "education": "Any",
+        "occupation": "Any",
+        "business_types": [
+            "Dairy Business",
+            "Micro Enterprise",
+            "Retail"
+        ],
+        "benefits": [
+            "Collateral-free business loan",
+            "Shishu, Kishor and Tarun categories"
+        ],
+        "loan_amount": "Up to ₹10 lakh",
+        "subsidy": "As per lender policy",
+        "required_documents": [
+            "Aadhaar",
+            "PAN",
+            "Business plan"
+        ],
+        "application_process": "Apply at a participating bank or NBFC.",
+        "official_link": "https://www.mudra.org.in/"
+    },
+    {
+        "scheme_name": "Animal Husbandry Infrastructure Development Fund",
+        "category": "Agriculture",
+        "state": "All India",
+        "min_age": 18,
+        "max_age": 65,
+        "gender": "Any",
+        "income_limit": null,
+        "education": "Any",
+        "occupation": "Farmer",
+        "business_types": [
+            "Dairy Business",
+            "Animal Husbandry"
+        ],
+        "benefits": [
+            "Interest subvention",
+            "Infrastructure finance"
+        ],
+        "loan_amount": "As approved",
+        "subsidy": "3% interest subvention",
+        "required_documents": [
+            "Aadhaar",
+            "Project Report",
+            "Bank details"
+        ],
+        "application_process": "Apply through eligible financial institutions.",
+        "official_link": "https://dahd.nic.in/"
+    },
+    {
+        "scheme_name": "Andhra Pradesh YSR Rythu Bharosa",
+        "category": "Agriculture",
+        "state": "Andhra Pradesh",
+        "min_age": 18,
+        "max_age": 100,
+        "gender": "Any",
+        "income_limit": 500000,
+        "education": "Any",
+        "occupation": "Farmer",
+        "business_types": [
+            "Agriculture",
+            "Dairy Business"
+        ],
+        "benefits": [
+            "Annual farmer investment support"
+        ],
+        "loan_amount": "N/A",
+        "subsidy": "Direct benefit support",
+        "required_documents": [
+            "Aadhaar",
+            "Land records",
+            "Bank details"
+        ],
+        "application_process": "Apply through local agriculture authorities.",
+        "official_link": "https://apagrisnet.gov.in/"
+    },
+    {
+        "scheme_name": "Telangana Rythu Bandhu",
+        "category": "Agriculture",
+        "state": "Telangana",
+        "min_age": 18,
+        "max_age": 100,
+        "gender": "Any",
+        "income_limit": null,
+        "education": "Any",
+        "occupation": "Farmer",
+        "business_types": [
+            "Agriculture"
+        ],
+        "benefits": [
+            "Investment support for farmers"
+        ],
+        "loan_amount": "N/A",
+        "subsidy": "Direct benefit support",
+        "required_documents": [
+            "Aadhaar",
+            "Land records"
+        ],
+        "application_process": "Apply through agriculture department.",
+        "official_link": "https://rythubandhu.telangana.gov.in/"
+    },
+    {
+        "scheme_name": "Karnataka Raitha Vidya Nidhi",
+        "category": "Education",
+        "state": "Karnataka",
+        "min_age": 16,
+        "max_age": 35,
+        "gender": "Any",
+        "income_limit": 500000,
+        "education": "Any",
+        "occupation": "Farmer",
+        "business_types": [],
+        "benefits": [
+            "Scholarship support"
+        ],
+        "loan_amount": "N/A",
+        "subsidy": "Scholarship",
+        "required_documents": [
+            "Aadhaar",
+            "Income certificate",
+            "College ID"
+        ],
+        "application_process": "Apply via state scholarship portal.",
+        "official_link": "https://raitamitra.karnataka.gov.in/"
+    },
+    {
+        "scheme_name": "Tamil Nadu Uzhavar Sandhai",
+        "category": "Agriculture",
+        "state": "Tamil Nadu",
+        "min_age": 18,
+        "max_age": 100,
+        "gender": "Any",
+        "income_limit": null,
+        "education": "Any",
+        "occupation": "Farmer",
+        "business_types": [
+            "Agriculture",
+            "Dairy Business"
+        ],
+        "benefits": [
+            "Market access support"
+        ],
+        "loan_amount": "N/A",
+        "subsidy": "N/A",
+        "required_documents": [
+            "Aadhaar",
+            "Farmer registration"
+        ],
+        "application_process": "Contact district agriculture office.",
+        "official_link": "https://www.tnagrisnet.tn.gov.in/"
+    },
+    {
+        "scheme_name": "Kerala Startup Mission Seed Fund",
+        "category": "Startup",
+        "state": "Kerala",
+        "min_age": 18,
+        "max_age": 65,
+        "gender": "Any",
+        "income_limit": null,
+        "education": "Any",
+        "occupation": "Entrepreneur",
+        "business_types": [
+            "Startup",
+            "Technology"
+        ],
+        "benefits": [
+            "Seed funding support"
+        ],
+        "loan_amount": "As approved",
+        "subsidy": "Grant support",
+        "required_documents": [
+            "Aadhaar",
+            "Pitch deck",
+            "Company registration"
+        ],
+        "application_process": "Apply through KSUM portal.",
+        "official_link": "https://startupmission.kerala.gov.in/"
+    },
+    {
+        "scheme_name": "Maharashtra Chief Minister Employment Generation Programme",
+        "category": "Business",
+        "state": "Maharashtra",
+        "min_age": 18,
+        "max_age": 45,
+        "gender": "Any",
+        "income_limit": null,
+        "education": "Any",
+        "occupation": "Any",
+        "business_types": [
+            "Dairy Business",
+            "Manufacturing",
+            "Service"
+        ],
+        "benefits": [
+            "Credit-linked subsidy"
+        ],
+        "loan_amount": "As approved",
+        "subsidy": "As per category",
+        "required_documents": [
+            "Aadhaar",
+            "PAN",
+            "Project Report"
+        ],
+        "application_process": "Apply through state portal.",
+        "official_link": "https://maha-cmegp.gov.in/"
+    },
+    {
+        "scheme_name": "Stand Up India",
+        "category": "Business",
+        "state": "All India",
+        "min_age": 18,
+        "max_age": 65,
+        "gender": "Any",
+        "income_limit": null,
+        "education": "Any",
+        "occupation": "Entrepreneur",
+        "business_types": [
+            "Dairy Business",
+            "Manufacturing",
+            "Service"
+        ],
+        "benefits": [
+            "Bank loan for greenfield enterprise"
+        ],
+        "loan_amount": "₹10 lakh to ₹1 crore",
+        "subsidy": "N/A",
+        "required_documents": [
+            "Aadhaar",
+            "PAN",
+            "Project report"
+        ],
+        "application_process": "Apply via Stand Up Mitra.",
+        "official_link": "https://www.standupmitra.in/"
+    }
+     {
+        "scheme_name": "PM SVANidhi",
+        "category": "Business",
+        "state": "All India",
+        "min_age": 18,
+        "max_age": 65,
+        "gender": "Any",
+        "income_limit": null,
+        "education": "Any",
+        "occupation": "Street Vendor",
+        "business_types": [
+            "Street Vending",
+            "Retail"
+        ],
+        "benefits": [
+            "Collateral-free working capital loan",
+            "Interest subsidy"
+        ],
+        "loan_amount": "Up to ₹50,000",
+        "subsidy": "7% interest subsidy",
+        "required_documents": [
+            "Aadhaar",
+            "Vendor Certificate",
+            "Bank Account"
+        ],
+        "application_process": "Apply through ULB or PM SVANidhi portal.",
+        "official_link": "https://pmsvanidhi.mohua.gov.in/"
+    },
+    {
+        "scheme_name": "PM Kisan Samman Nidhi",
+        "category": "Agriculture",
+        "state": "All India",
+        "min_age": 18,
+        "max_age": 100,
+        "gender": "Any",
+        "income_limit": null,
+        "education": "Any",
+        "occupation": "Farmer",
+        "business_types": [
+            "Agriculture"
+        ],
+        "benefits": [
+            "₹6,000 annual income support"
+        ],
+        "loan_amount": "N/A",
+        "subsidy": "₹6,000 per year",
+        "required_documents": [
+            "Aadhaar",
+            "Land Records",
+            "Bank Account"
+        ],
+        "application_process": "Register through PM-Kisan portal.",
+        "official_link": "https://pmkisan.gov.in/"
+    },
+    {
+        "scheme_name": "Ayushman Bharat PM-JAY",
+        "category": "Health",
+        "state": "All India",
+        "min_age": 0,
+        "max_age": 120,
+        "gender": "Any",
+        "income_limit": null,
+        "education": "Any",
+        "occupation": "Any",
+        "business_types": [],
+        "benefits": [
+            "Health insurance coverage up to ₹5 lakh"
+        ],
+        "loan_amount": "N/A",
+        "subsidy": "Health Coverage",
+        "required_documents": [
+            "Aadhaar",
+            "Family ID"
+        ],
+        "application_process": "Check eligibility on PM-JAY portal.",
+        "official_link": "https://pmjay.gov.in/"
+    },
+    {
+        "scheme_name": "Pradhan Mantri Awas Yojana",
+        "category": "Housing",
+        "state": "All India",
+        "min_age": 18,
+        "max_age": 70,
+        "gender": "Any",
+        "income_limit": 1800000,
+        "education": "Any",
+        "occupation": "Any",
+        "business_types": [],
+        "benefits": [
+            "Home loan interest subsidy"
+        ],
+        "loan_amount": "As eligible",
+        "subsidy": "Up to ₹2.67 lakh",
+        "required_documents": [
+            "Aadhaar",
+            "Income Certificate",
+            "Property Documents"
+        ],
+        "application_process": "Apply through banks or PMAY portal.",
+        "official_link": "https://pmaymis.gov.in/"
+    },
+    {
+        "scheme_name": "National Apprenticeship Promotion Scheme",
+        "category": "Employment",
+        "state": "All India",
+        "min_age": 18,
+        "max_age": 35,
+        "gender": "Any",
+        "income_limit": null,
+        "education": "ITI",
+        "occupation": "Student",
+        "business_types": [],
+        "benefits": [
+            "Apprenticeship training",
+            "Monthly stipend"
+        ],
+        "loan_amount": "N/A",
+        "subsidy": "Government stipend support",
+        "required_documents": [
+            "Aadhaar",
+            "Educational Certificates"
+        ],
+        "application_process": "Apply through NAPS portal.",
+        "official_link": "https://www.apprenticeshipindia.gov.in/"
+    },
+    {
+        "scheme_name": "Skill India Mission",
+        "category": "Skill Development",
+        "state": "All India",
+        "min_age": 18,
+        "max_age": 45,
+        "gender": "Any",
+        "income_limit": null,
+        "education": "Any",
+        "occupation": "Unemployed",
+        "business_types": [],
+        "benefits": [
+            "Free skill training",
+            "Certification"
+        ],
+        "loan_amount": "N/A",
+        "subsidy": "Free Training",
+        "required_documents": [
+            "Aadhaar",
+            "Educational Certificate"
+        ],
+        "application_process": "Register through Skill India portal.",
+        "official_link": "https://www.skillindia.gov.in/"
+    },
+    {
+        "scheme_name": "Sukanya Samriddhi Yojana",
+        "category": "Savings",
+        "state": "All India",
+        "min_age": 0,
+        "max_age": 10,
+        "gender": "Female",
+        "income_limit": null,
+        "education": "Any",
+        "occupation": "Any",
+        "business_types": [],
+        "benefits": [
+            "High-interest savings account"
+        ],
+        "loan_amount": "N/A",
+        "subsidy": "Tax Benefits",
+        "required_documents": [
+            "Birth Certificate",
+            "Aadhaar"
+        ],
+        "application_process": "Open account in bank or post office.",
+        "official_link": "https://www.nsiindia.gov.in/"
+    },
+    {
+        "scheme_name": "Atal Pension Yojana",
+        "category": "Pension",
+        "state": "All India",
+        "min_age": 18,
+        "max_age": 40,
+        "gender": "Any",
+        "income_limit": null,
+        "education": "Any",
+        "occupation": "Any",
+        "business_types": [],
+        "benefits": [
+            "Guaranteed monthly pension"
+        ],
+        "loan_amount": "N/A",
+        "subsidy": "Government co-contribution (eligible cases)",
+        "required_documents": [
+            "Aadhaar",
+            "Bank Account"
+        ],
+        "application_process": "Apply through bank.",
+        "official_link": "https://www.npscra.nsdl.co.in/"
+    },
+    {
+        "scheme_name": "National Scholarship Portal",
+        "category": "Education",
+        "state": "All India",
+        "min_age": 10,
+        "max_age": 35,
+        "gender": "Any",
+        "income_limit": 800000,
+        "education": "Student",
+        "occupation": "Student",
+        "business_types": [],
+        "benefits": [
+            "Central and State Scholarships"
+        ],
+        "loan_amount": "N/A",
+        "subsidy": "Scholarship",
+        "required_documents": [
+            "Aadhaar",
+            "Income Certificate",
+            "Educational Documents"
+        ],
+        "application_process": "Apply through NSP portal.",
+        "official_link": "https://scholarships.gov.in/"
+    },
+    {
+        "scheme_name": "PM Vishwakarma",
+        "category": "Business",
+        "state": "All India",
+        "min_age": 18,
+        "max_age": 65,
+        "gender": "Any",
+        "income_limit": null,
+        "education": "Any",
+        "occupation": "Artisan",
+        "business_types": [
+            "Carpentry",
+            "Blacksmith",
+            "Tailoring",
+            "Pottery"
+        ],
+        "benefits": [
+            "Skill training",
+            "Toolkit incentive",
+            "Collateral-free loan"
+        ],
+        "loan_amount": "Up to ₹3 lakh",
+        "subsidy": "Concessional interest",
+        "required_documents": [
+            "Aadhaar",
+            "Bank Account"
+        ],
+        "application_process": "Apply through PM Vishwakarma portal.",
+        "official_link": "https://pmvishwakarma.gov.in/"
+    }
+    {
+        "scheme_name": "PM SVANidhi",
+        "category": "Business",
+        "state": "All India",
+        "min_age": 18,
+        "max_age": 65,
+        "gender": "Any",
+        "income_limit": null,
+        "education": "Any",
+        "occupation": "Street Vendor",
+        "business_types": [
+            "Street Vending",
+            "Retail"
+        ],
+        "benefits": [
+            "Collateral-free working capital loan",
+            "Interest subsidy"
+        ],
+        "loan_amount": "Up to ₹50,000",
+        "subsidy": "7% interest subsidy",
+        "required_documents": [
+            "Aadhaar",
+            "Vendor Certificate",
+            "Bank Account"
+        ],
+        "application_process": "Apply through ULB or PM SVANidhi portal.",
+        "official_link": "https://pmsvanidhi.mohua.gov.in/"
+    },
+    {
+        "scheme_name": "PM Kisan Samman Nidhi",
+        "category": "Agriculture",
+        "state": "All India",
+        "min_age": 18,
+        "max_age": 100,
+        "gender": "Any",
+        "income_limit": null,
+        "education": "Any",
+        "occupation": "Farmer",
+        "business_types": [
+            "Agriculture"
+        ],
+        "benefits": [
+            "₹6,000 annual income support"
+        ],
+        "loan_amount": "N/A",
+        "subsidy": "₹6,000 per year",
+        "required_documents": [
+            "Aadhaar",
+            "Land Records",
+            "Bank Account"
+        ],
+        "application_process": "Register through PM-Kisan portal.",
+        "official_link": "https://pmkisan.gov.in/"
+    },
+    {
+        "scheme_name": "Ayushman Bharat PM-JAY",
+        "category": "Health",
+        "state": "All India",
+        "min_age": 0,
+        "max_age": 120,
+        "gender": "Any",
+        "income_limit": null,
+        "education": "Any",
+        "occupation": "Any",
+        "business_types": [],
+        "benefits": [
+            "Health insurance coverage up to ₹5 lakh"
+        ],
+        "loan_amount": "N/A",
+        "subsidy": "Health Coverage",
+        "required_documents": [
+            "Aadhaar",
+            "Family ID"
+        ],
+        "application_process": "Check eligibility on PM-JAY portal.",
+        "official_link": "https://pmjay.gov.in/"
+    },
+    {
+        "scheme_name": "Pradhan Mantri Awas Yojana",
+        "category": "Housing",
+        "state": "All India",
+        "min_age": 18,
+        "max_age": 70,
+        "gender": "Any",
+        "income_limit": 1800000,
+        "education": "Any",
+        "occupation": "Any",
+        "business_types": [],
+        "benefits": [
+            "Home loan interest subsidy"
+        ],
+        "loan_amount": "As eligible",
+        "subsidy": "Up to ₹2.67 lakh",
+        "required_documents": [
+            "Aadhaar",
+            "Income Certificate",
+            "Property Documents"
+        ],
+        "application_process": "Apply through banks or PMAY portal.",
+        "official_link": "https://pmaymis.gov.in/"
+    },
+    {
+        "scheme_name": "National Apprenticeship Promotion Scheme",
+        "category": "Employment",
+        "state": "All India",
+        "min_age": 18,
+        "max_age": 35,
+        "gender": "Any",
+        "income_limit": null,
+        "education": "ITI",
+        "occupation": "Student",
+        "business_types": [],
+        "benefits": [
+            "Apprenticeship training",
+            "Monthly stipend"
+        ],
+        "loan_amount": "N/A",
+        "subsidy": "Government stipend support",
+        "required_documents": [
+            "Aadhaar",
+            "Educational Certificates"
+        ],
+        "application_process": "Apply through NAPS portal.",
+        "official_link": "https://www.apprenticeshipindia.gov.in/"
+    },
+    {
+        "scheme_name": "Skill India Mission",
+        "category": "Skill Development",
+        "state": "All India",
+        "min_age": 18,
+        "max_age": 45,
+        "gender": "Any",
+        "income_limit": null,
+        "education": "Any",
+        "occupation": "Unemployed",
+        "business_types": [],
+        "benefits": [
+            "Free skill training",
+            "Certification"
+        ],
+        "loan_amount": "N/A",
+        "subsidy": "Free Training",
+        "required_documents": [
+            "Aadhaar",
+            "Educational Certificate"
+        ],
+        "application_process": "Register through Skill India portal.",
+        "official_link": "https://www.skillindia.gov.in/"
+    },
+    {
+        "scheme_name": "Sukanya Samriddhi Yojana",
+        "category": "Savings",
+        "state": "All India",
+        "min_age": 0,
+        "max_age": 10,
+        "gender": "Female",
+        "income_limit": null,
+        "education": "Any",
+        "occupation": "Any",
+        "business_types": [],
+        "benefits": [
+            "High-interest savings account"
+        ],
+        "loan_amount": "N/A",
+        "subsidy": "Tax Benefits",
+        "required_documents": [
+            "Birth Certificate",
+            "Aadhaar"
+        ],
+        "application_process": "Open account in bank or post office.",
+        "official_link": "https://www.nsiindia.gov.in/"
+    },
+    {
+        "scheme_name": "Atal Pension Yojana",
+        "category": "Pension",
+        "state": "All India",
+        "min_age": 18,
+        "max_age": 40,
+        "gender": "Any",
+        "income_limit": null,
+        "education": "Any",
+        "occupation": "Any",
+        "business_types": [],
+        "benefits": [
+            "Guaranteed monthly pension"
+        ],
+        "loan_amount": "N/A",
+        "subsidy": "Government co-contribution (eligible cases)",
+        "required_documents": [
+            "Aadhaar",
+            "Bank Account"
+        ],
+        "application_process": "Apply through bank.",
+        "official_link": "https://www.npscra.nsdl.co.in/"
+    },
+    {
+        "scheme_name": "National Scholarship Portal",
+        "category": "Education",
+        "state": "All India",
+        "min_age": 10,
+        "max_age": 35,
+        "gender": "Any",
+        "income_limit": 800000,
+        "education": "Student",
+        "occupation": "Student",
+        "business_types": [],
+        "benefits": [
+            "Central and State Scholarships"
+        ],
+        "loan_amount": "N/A",
+        "subsidy": "Scholarship",
+        "required_documents": [
+            "Aadhaar",
+            "Income Certificate",
+            "Educational Documents"
+        ],
+        "application_process": "Apply through NSP portal.",
+        "official_link": "https://scholarships.gov.in/"
+    },
+    {
+        "scheme_name": "PM Vishwakarma",
+        "category": "Business",
+        "state": "All India",
+        "min_age": 18,
+        "max_age": 65,
+        "gender": "Any",
+        "income_limit": null,
+        "education": "Any",
+        "occupation": "Artisan",
+        "business_types": [
+            "Carpentry",
+            "Blacksmith",
+            "Tailoring",
+            "Pottery"
+        ],
+        "benefits": [
+            "Skill training",
+            "Toolkit incentive",
+            "Collateral-free loan"
+        ],
+        "loan_amount": "Up to ₹3 lakh",
+        "subsidy": "Concessional interest",
+        "required_documents": [
+            "Aadhaar",
+            "Bank Account"
+        ],
+        "application_process": "Apply through PM Vishwakarma portal.",
+        "official_link": "https://pmvishwakarma.gov.in/"
+    }
 ]
